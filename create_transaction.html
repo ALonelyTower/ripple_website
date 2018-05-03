@@ -9,5 +9,26 @@
 </head>
 <body>
     <script src="js/navigation.js"></script>
+
+    <form>
+        <div>
+            <input type="radio" id="form_xchange_xrp_xrp" name="exchange_pair" value="0" checked>
+            <label for="form_xchange_xrp_xrp">XRP:XRP</label>
+        </div>
+        <div>
+            <input type="radio" id="form_xchange_xrp_usd" name="exchange_pair" value="1" disabled>
+            <label for="form_xchange_xrp_usd">XRP:USD</label>
+        </div>
+        <div>
+            <input type="radio" id="form_xchange_usd_xrp" name="exchange_pair" value="2" disabled>
+            <label for="form_xchange_usd_xrp">USD:XRP</label>
+        </div>
+        <div>
+            <label for="trans_xrp_value_input">XRP Value</label>
+            <input type="number" name="xrp_value" min="1" max="10000" required><br>
+        </div>
+
+        <input type="submit" onclick="createTransaction()">
+    </form>
 </body>
 </html>
