@@ -8,10 +8,16 @@ function generateKeys() {
 
 function createTransaction() {
     _createTransaction().then(function(txJSON){
-        var transaction = txJSON['txJSON'];
-        console.log(transaction);
-        console.log(transaction['TransactionType']);
-        document.getElementById("create_transaction_transtype").innerHTML = transaction.TransactionType;
+        var transaction = JSON.parse(txJSON['txJSON']);
+        document.getElementById("create_transaction_transtype").innerHTML = "Transaction Type: " + transaction.TransactionType;
+        document.getElementById("create_transaction_account").innerHTML = "Account: " + transaction.Account;
+        document.getElementById("create_transaction_destination").innerHTML = "Destination: " + transaction.Destination;
+        document.getElementById("create_transaction_amount").innerHTML = "Amount: " + transaction.Amount;
+        document.getElementById("create_transaction_flags").innerHTML = "Flags: " + transaction.Flags;
+        document.getElementById("create_transaction_lastledgersequence").innerHTML = "Last Ledger Sequence: " + transaction.LastLedgerSequence;
+        document.getElementById("create_transaction_fee").innerHTML = "Fee: " + transaction.Fee;
+        document.getElementById("create_transaction_sequences").innerHTML = "Sequences: " + transaction.Sequences;
+
     }).catch(console.error);
 }
 
