@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ripple Wallet Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/lodash.js"></script>
+    <script type="text/javascript" src="js/ripple-0.21.0.js"></script>
+    <script type="text/javascript" src="js/ripple.js"></script>
+</head>
+<body>
+    <script src="js/navigation.js"></script>
+
+    <p>This page is for signing recently created transactions.  To sign transactions, the account that's sending the currency must use their secret key to sign the transaction.</p>
+
+    <form>
+        <fieldset>
+            <legend>Transaction Signing Form</legend>
+            <div>
+                <label for="sign_transaction_secret_key">Secret Key</label>
+                <input type="text" id="sign_transaction_secret_key" name="secret_key">
+            </div>
+            <div>
+                <label for="sign_transaction_txjson_object">txJSON Object String</label>
+                <input type="text" id="sign_transaction_txjson_object" name="txjson_object">
+            </div>
+                <button type="button" onclick="signTransaction()">Sign Transaction</button>
+                <button type="reset">Clear Form</button>
+        </fieldset>
+    </form>
+
+    <div>
+        <h4>Signed Transfer Object</h4>
+        <p id="signed_transfer_object"></p>
+    </div>
+</body>
+</html>
