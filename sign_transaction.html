@@ -13,11 +13,11 @@
 <body>
     <script src="js/navigation.js"></script>
 
-    <p>This page is for signing recently created transactions.  To sign transactions, the account that's sending the currency must use their secret key to sign the transaction.</p>
 
     <form>
         <fieldset>
             <legend>Transaction Signing Form</legend>
+    <p>This page is for signing recently created transactions.  To sign transactions, the account that's sending the currency must use their secret key to sign the transaction.</p>
             <div>
                 <label for="sign_transaction_secret_key">Secret Key</label>
                 <input type="text" id="sign_transaction_secret_key" name="secret_key">
@@ -32,8 +32,10 @@
     </form>
 
     <div>
-        <h4>Signed Transfer Object</h4>
-        <p id="signed_transfer_object"></p>
+        <h4>Signed Transaction Hash</h4>
+        <p id="signed_transaction_hash"></p>
+        <h4>Transaction ID</h4>
+        <p id="signed_transaction_id"></p>
     </div>
 </body>
 </html>

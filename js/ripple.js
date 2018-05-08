@@ -21,29 +21,32 @@ function createTransaction() {
 }
 
 function signTransaction() {
-    _signTransaction().then(function(signed_tx_object){
-        document.getElementById("signed_transfer_object").innerHTML = signed_tx_object;
-    }).catch(console.error);
-}
+    const signed_tx_object = _signTransaction();
+    document.getElementById("signed_transaction_hash").innerHTML = signed_tx_object.signedTransaction;
+    document.getElementById("signed_transaction_id").innerHTML = signed_tx_object.id;
 
-function _signTransaction() {
-    var secret_key = document.getElementById("sign_transaction_secret_key");
-    var txjson_object = document.getElementById("sign_transaction_txjson_object");
-    var api = new ripple.RippleAPI();
-    return api.sign(txjson_object, secret_key);
 }
 
 function _createTransaction() {
     var send_address = document.getElementById("form_sending_wallet_address").value;
     var receive_address = document.getElementById("form_receiving_wallet_address").value;
     var transfer_value_in_xrp = document.getElementById("trans_xrp_value").value;
-    var payment = createPayment(send_address, receive_address, transfer_value_in_xrp);
-    const instructions = createInstructions();
+    var payment = _createPayment(send_address, receive_address, transfer_value_in_xrp);
+    const instructions = _createInstructions();
     var api = new ripple.RippleAPI();
     return api.preparePayment(send_address, payment, instructions);
 }
 
-function createPayment(source_address, destination_address, xrp_amount) {
+function _signTransaction() {
+    var secret_key = document.getElementById("sign_transaction_secret_key").value;
+    var txjson_object = document.getElementById("sign_transaction_txjson_object").value;
+    var api = new ripple.RippleAPI();
+
+    return api.sign(txjson_object, secret_key);
+}
+
+
+function _createPayment(source_address, destination_address, xrp_amount) {
     var payment = {};
     payment['source'] = {};
     payment['source']['address'] = source_address;
@@ -58,7 +61,7 @@ function createPayment(source_address, destination_address, xrp_amount) {
     return payment;
 }
 
-function createInstructions() {
+function _createInstructions() {
     var instructions = {};
     instructions['fee'] = "0.00001";
     instructions['sequence'] = 10;
