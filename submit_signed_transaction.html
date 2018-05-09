@@ -9,5 +9,23 @@
 </head>
 <body>
     <script src="js/navigation.js"></script>
+    <div class="container">
+        <h4>Submit Signed Transaction</h4>
+    </div>
+    <div class="container">
+    <form>
+        <div>
+            <label for="submit_txjson_object">Signed txJSON Hash</label>
+            <input type="text" id="submit_txjson_object">
+        </div>
+        <button type="submit" onclick="submitSignedTransaction()">Submit Signed Transaction to Network</button>
+    </form>
+    </div>
+
+    <div class="container">
+        <h4>Submission Result</h4>
+        <p id="submit_result_code"></p>
+        <p id="submit_result_message"></p>
+    </div>
 </body>
 </html>

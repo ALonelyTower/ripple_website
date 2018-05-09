@@ -27,6 +27,10 @@ function signTransaction() {
 
 }
 
+function submitTransaction() {
+    
+}
+
 function _createTransaction() {
     var send_address = document.getElementById("form_sending_wallet_address").value;
     var receive_address = document.getElementById("form_receiving_wallet_address").value;
