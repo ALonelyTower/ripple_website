@@ -12,73 +12,75 @@
 </head>
 <body>
     <script src="js/navigation.js"></script>
+    <div class="container">
+        <form>
+            <fieldset>
+                <legend>Transaction Form</legend>
+            <div>
+                <label for="form_sending_wallet_address">Sending Wallet Address</label>
+                <input type="text" id="form_sending_wallet_address" name="wallet_address">
+            </div>
+            <div>
+                <label for="form_receiving_wallet_address">Receiving Wallet Address</label>
+                <input type="text" id="form_receiving_wallet_address" name="wallet_address">
+            </div>
+            <div>
+                <input type="radio" id="form_xchange_xrp_xrp" name="exchange_pair" value="0" checked>
+                <label for="form_xchange_xrp_xrp">XRP:XRP</label>
+            </div>
+            <div>
+                <input type="radio" id="form_xchange_xrp_usd" name="exchange_pair" value="1" disabled>
+                <label for="form_xchange_xrp_usd">XRP:USD</label>
+            </div>
+            <div>
+                <input type="radio" id="form_xchange_usd_xrp" name="exchange_pair" value="2" disabled>
+                <label for="form_xchange_usd_xrp">USD:XRP</label>
+            </div>
+            <div>
+                <label for="trans_xrp_value">XRP Value</label>
+                <input type="number" id="trans_xrp_value" name="xrp_value" min="1" max="10000" required><br>
+            </div>
 
-    <form>
-        <fieldset>
-            <legend>Transaction Form</legend>
-        <div>
-            <label for="form_sending_wallet_address">Sending Wallet Address</label>
-            <input type="text" id="form_sending_wallet_address" name="wallet_address">
-        </div>
-        <div>
-            <label for="form_receiving_wallet_address">Receiving Wallet Address</label>
-            <input type="text" id="form_receiving_wallet_address" name="wallet_address">
-        </div>
-        <div>
-            <input type="radio" id="form_xchange_xrp_xrp" name="exchange_pair" value="0" checked>
-            <label for="form_xchange_xrp_xrp">XRP:XRP</label>
-        </div>
-        <div>
-            <input type="radio" id="form_xchange_xrp_usd" name="exchange_pair" value="1" disabled>
-            <label for="form_xchange_xrp_usd">XRP:USD</label>
-        </div>
-        <div>
-            <input type="radio" id="form_xchange_usd_xrp" name="exchange_pair" value="2" disabled>
-            <label for="form_xchange_usd_xrp">USD:XRP</label>
-        </div>
-        <div>
-            <label for="trans_xrp_value">XRP Value</label>
-            <input type="number" id="trans_xrp_value" name="xrp_value" min="1" max="10000" required><br>
-        </div>
-
-        <button type="button" onclick="createTransaction()">Create Transaction</button>
-        <button type="reset" value="reset">Clear Form</button>
-        </fieldset>
-    </form>
-
-    <div>
-        <h4>Raw txJSON Object</h4>
-        <p id="create_transaction_raw_txjson_object"></p>
+            <button type="button" onclick="createTransaction()">Create Transaction</button>
+            <button type="reset" value="reset">Clear Form</button>
+            </fieldset>
+        </form>
     </div>
-    
-    <div>
-        <h4>Created Transaction Details</h4>
-        <ul>
-            <li>
-                <p id="create_transaction_transtype">Transaction Type:</p>
-            </li>
-            <li>
-                <p id="create_transaction_account">Account:</p>
-            </li>
-            <li>
-                <p id="create_transaction_destination">Destination:</p>
-            </li>
-            <li>
-                <p id="create_transaction_amount">Amount:</p>
-            </li>
-            <li>
-                <p id="create_transaction_flags">Flags:</p>
-            </li>
-            <li>
-                <p id="create_transaction_lastledgersequence">LastLedgerSequence:</p>
-            </li>
-            <li>
-                <p id="create_transaction_fee">Fee:</p>
-            </li>
-            <li>
-                <p id="create_transaction_sequences">Sequences:</p>
-            </li>
-        </ul>
+
+    <div class="container">
+            <h4>Raw txJSON Object</h4>
+            <p id="create_transaction_raw_txjson_object"></p>
+    </div>
+        
+        <div class="container">
+            <h4>Created Transaction Details</h4>
+            <ul>
+                <li>
+                    <p id="create_transaction_transtype">Transaction Type:</p>
+                </li>
+                <li>
+                    <p id="create_transaction_account">Account:</p>
+                </li>
+                <li>
+                    <p id="create_transaction_destination">Destination:</p>
+                </li>
+                <li>
+                    <p id="create_transaction_amount">Amount:</p>
+                </li>
+                <li>
+                    <p id="create_transaction_flags">Flags:</p>
+                </li>
+                <li>
+                    <p id="create_transaction_lastledgersequence">LastLedgerSequence:</p>
+                </li>
+                <li>
+                    <p id="create_transaction_fee">Fee:</p>
+                </li>
+                <li>
+                    <p id="create_transaction_sequences">Sequences:</p>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

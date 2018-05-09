@@ -14,24 +14,26 @@
     <script src="js/navigation.js"></script>
 
 
+    <div class="container">
     <form>
         <fieldset>
-            <legend>Transaction Signing Form</legend>
-    <p>This page is for signing recently created transactions.  To sign transactions, the account that's sending the currency must use their secret key to sign the transaction.</p>
-            <div>
-                <label for="sign_transaction_secret_key">Secret Key</label>
-                <input type="text" id="sign_transaction_secret_key" name="secret_key">
-            </div>
-            <div>
-                <label for="sign_transaction_txjson_object">txJSON Object String</label>
-                <input type="text" id="sign_transaction_txjson_object" name="txjson_object">
-            </div>
-                <button type="button" onclick="signTransaction()">Sign Transaction</button>
-                <button type="reset">Clear Form</button>
+        <legend>Transaction Signing Form</legend>
+        <p>This page is for signing recently created transactions.  To sign transactions, the account that's sending the currency must use their secret key to sign the transaction.</p>
+        <div>
+            <label for="sign_transaction_secret_key">Secret Key</label>
+            <input type="text" id="sign_transaction_secret_key" name="secret_key">
+        </div>
+        <div>
+            <label for="sign_transaction_txjson_object">txJSON Object String</label>
+            <input type="text" id="sign_transaction_txjson_object" name="txjson_object">
+        </div>
+            <button type="button" onclick="signTransaction()">Sign Transaction</button>
+            <button type="reset">Clear Form</button>
         </fieldset>
     </form>
+    </div>
 
-    <div>
+    <div class="container">
         <h4>Signed Transaction Hash</h4>
         <p id="signed_transaction_hash"></p>
         <h4>Transaction ID</h4>
