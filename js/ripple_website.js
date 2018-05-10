@@ -24,36 +24,6 @@ function signTransaction() {
     const signed_tx_object = _signTransaction();
     document.getElementById("signed_transaction_hash").innerHTML = signed_tx_object.signedTransaction;
     document.getElementById("signed_transaction_id").innerHTML = signed_tx_object.id;
-
-}
-
-function submitSignedTransaction() {
-    const signed_txjson_string = document.getElementById("submit_signed_txjson_hash")
-
-    // Boilerplate code taken from Ripple API reference site
-    const api = new ripple.RippleAPI({
-        server: 'wss://s1.ripple.com' // Public rippled server hosted by Ripple, Inc.
-    });
-    api.on('error', (errorCode, errorMessage) => {
-        console.log(errorCode + ': ' + errorMessage);
-    });
-    api.on('connected', () => {
-        console.log('connected');
-    });
-    api.on('disconnected', (code) => {
-        // code - [close code](https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent) sent by the server
-        // will be 1000 if this was normal closure
-        console.log('disconnected, code:', code);
-    });
-    api.connect().then(() => {
-        console.log("Hello, World!");
-        api.sign(signed_tx_string).then(function(resultCode, resultMessage){
-            document.getElementById("submit_result_code").innerHTML = resultCode;
-            document.getElementById("submit_result_message").innerHTML = resultMessage;
-        }).catch(console.error);
-    }).then(() => {
-        return api.disconnect();
-    }).catch(console.error);
 }
 
 function _createTransaction() {

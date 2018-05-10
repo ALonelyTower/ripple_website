@@ -21,8 +21,8 @@ function injectHeaderHTML() {
 function injectNavigationHTML() {
     var outerDiv = document.createElement("div");
     var navUnorderedList = document.createElement("ul");
-    var navItemArray = ["Home", "Create Wallet", "Create Transaction", "Sign Transaction", "Submit Transaction", "Help"];
-    var navAddrArray = ["index.html", "create_wallet.html", "create_transaction.html", "sign_transaction.html", "submit_signed_transaction.html", "help.html"];
+    var navItemArray = ["Home", "Create Wallet", "Create Transaction", "Sign Transaction", "Help"];
+    var navAddrArray = ["index.html", "create_wallet.html", "create_transaction.html", "sign_transaction.html", "help.html"];
     var listItemArray = [];
     var linkItemArray = [];
 
