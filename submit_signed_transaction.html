@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/lodash.js"></script>
+    <script type="text/javascript" src="js/ripple-0.21.0.js"></script>
+    <script type="text/javascript" src="js/ripple_website.js"></script>
 </head>
 <body>
     <script src="js/navigation.js"></script>
@@ -16,7 +19,7 @@
     <form>
         <div>
             <label for="submit_txjson_object">Signed txJSON Hash</label>
-            <input type="text" id="submit_txjson_object">
+            <input type="text" id="submit_signed_txjson_hash">
         </div>
         <button type="submit" onclick="submitSignedTransaction()">Submit Signed Transaction to Network</button>
     </form>
