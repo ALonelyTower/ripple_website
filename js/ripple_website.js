@@ -27,13 +27,11 @@ function signTransaction() {
 }
 
 function _createTransaction() {
-    var send_address = document.getElementById("form_sending_wallet_address").value;
-    var receive_address = document.getElementById("form_receiving_wallet_address").value;
-    var transfer_value_in_xrp = document.getElementById("trans_xrp_value").value;
-    var payment = _createPayment(send_address, receive_address, transfer_value_in_xrp);
+    const payment = _createPayment();
     const instructions = _createInstructions();
-    var api = new ripple.RippleAPI();
-    return api.preparePayment(send_address, payment, instructions);
+    const api = new ripple.RippleAPI();
+    
+    return api.preparePayment(payment.source.address, payment, instructions);
 }
 
 function _signTransaction() {
@@ -45,8 +43,12 @@ function _signTransaction() {
 }
 
 
-function _createPayment(source_address, destination_address, xrp_amount) {
+function _createPayment() {
+    var source_address = document.getElementById("creat_trans_form_sending_wallet_address").value;
+    var destination_address = document.getElementById("creat_trans_form_receiving_wallet_address").value;
+    var xrp_amount = document.getElementById("creat_trans_form_xrp_value").value;
     var payment = {};
+
     payment['source'] = {};
     payment['source']['address'] = source_address;
     payment['source']['amount'] = {};
@@ -61,9 +63,13 @@ function _createPayment(source_address, destination_address, xrp_amount) {
 }
 
 function _createInstructions() {
+    var transaction_fee = document.getElementById("creat_trans_form_transaction_fee").value;
+    var max_ledger_version = document.getElementById("creat_trans_form_max_ledger_version").value;
+    var sequence_number = document.getElementById("creat_trans_form_sequence_number").value;
     var instructions = {};
-    instructions['fee'] = "0.00001";
-    instructions['sequence'] = 10;
-    instructions['maxLedgerVersion'] = 53421;
+
+    instructions['fee'] = (0.00001 * transaction_fee).toString();
+    instructions['sequence'] = parseInt(sequence_number);
+    instructions['maxLedgerVersion'] = parseInt(max_ledger_version);
     return instructions;
 }
